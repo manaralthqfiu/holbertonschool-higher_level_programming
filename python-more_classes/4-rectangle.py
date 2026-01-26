@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """This module defines the Rectangle class."""
 
+
 class Rectangle:
     """Defines a rectangle."""
 
@@ -47,3 +48,4 @@ class Rectangle:
 
     def __repr__(self):
         return f"Rectangle({self.__width}, {self.__height})"
+
