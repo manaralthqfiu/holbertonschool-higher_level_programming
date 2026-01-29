@@ -1,0 +1,65 @@
+====================================
+Tests for BaseGeometry Class
+====================================
+
+First, import the class:
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
+
+------------------------------------
+1. Testing area() method
+------------------------------------
+Should raise an Exception because it's not yet implemented in the base class:
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
+
+------------------------------------
+2. Testing valid inputs
+------------------------------------
+>>> bg.integer_validator("my_int", 10)
+>>> bg.integer_validator("width", 89)
+
+------------------------------------
+3. Testing TypeError
+------------------------------------
+Value must be exactly an 'int', not a string, float, or boolean:
+
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+    ...
+TypeError: name must be an integer
+
+>>> bg.integer_validator("weight", 15.5)
+Traceback (most recent call last):
+    ...
+TypeError: weight must be an integer
+
+>>> bg.integer_validator("is_active", True)
+Traceback (most recent call last):
+    ...
+TypeError: is_active must be an integer
+
+------------------------------------
+4. Testing ValueError
+------------------------------------
+Value must be strictly greater than 0:
+
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+    ...
+ValueError: age must be greater than 0
+
+>>> bg.integer_validator("distance", -5)
+Traceback (most recent call last):
+    ...
+ValueError: distance must be greater than 0
+
+------------------------------------
+5. Testing argument count
+------------------------------------
+>>> bg.integer_validator("height")
+Traceback (most recent call last):
+    ...
+TypeError: integer_validator() missing 1 required positional argument: 'value'
