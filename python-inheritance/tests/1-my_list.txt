@@ -1,18 +1,50 @@
-#!/usr/bin/python3
-"""
-This module contains a function that returns the list of
-available attributes and methods of an object.
-"""
+============================
+How to use the MyList class:
+============================
 
+First, import the class:
+>>> MyList = __import__('1-my_list').MyList
 
-def lookup(obj):
-    """
-    Returns a list object containing all attributes and methods of an object.
+----------------------------
+Test 1: Standard integers
+----------------------------
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
+>>> print(my_list)
+[1, 4, 2, 3, 5]
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(my_list)
+[1, 4, 2, 3, 5]
 
-    Args:
-        obj: The object to inspect.
+----------------------------
+Test 2: Negative integers
+----------------------------
+>>> my_list = MyList([-1, -5, -2, 0, 10])
+>>> my_list.print_sorted()
+[-5, -2, -1, 0, 10]
 
-    Returns:
-        list: A list of strings representing attributes and methods.
-    """
-    return dir(obj)
+----------------------------
+Test 3: Empty list
+----------------------------
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
+
+----------------------------
+Test 4: Already sorted list
+----------------------------
+>>> my_list = MyList([1, 2, 3])
+>>> my_list.print_sorted()
+[1, 2, 3]
+
+----------------------------
+Test 5: Identical elements
+----------------------------
+>>> my_list = MyList([2, 1, 2, 1])
+>>> my_list.print_sorted()
+[1, 1, 2, 2]
