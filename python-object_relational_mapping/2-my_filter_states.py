@@ -23,7 +23,8 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Using format() as required by the task (not safe, but required)
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
+    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format
+    (state_name)
     cursor.execute(query)
 
     rows = cursor.fetchall()
